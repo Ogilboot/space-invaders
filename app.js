@@ -82,6 +82,13 @@ function moveInvaders() {
         clearInterval(invadersId)
     }
 
+    for (let i = 0; i < alienInvaders.length; i++) {
+        if(alienInvaders[i] > (squares.length)) {
+          resultsDisplay.innerHTML = 'GAME OVER BOZO'
+          clearInterval(invadersId)
+        }
+    }
 }
-
 invadersId = setInterval(moveInvaders, 500)
+
+function shoot (e)
