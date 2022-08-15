@@ -91,4 +91,13 @@ function moveInvaders() {
 }
 invadersId = setInterval(moveInvaders, 500)
 
-function shoot (e)
+function shoot (e) {
+    let laserId
+    let currentLaserIndex = currentShooterIndex
+
+    function moveLaser() {
+        squares[currentLaserIndex].classList.remove('laser')
+        currentLaserIndex -= width
+        squares[currentLaserIndex].classList.remove('laser')
+    }
+}
