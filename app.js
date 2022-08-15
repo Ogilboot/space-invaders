@@ -4,6 +4,7 @@ let width = 15
 let direction = 1
 let invadersId
 let goingRight = true
+const resultsDisplay = document.querySelector('.results')
 
 for (let i = 0; i < 225; i++) {
     const square = document.createElement('div')
@@ -77,7 +78,8 @@ function moveInvaders() {
     draw()
 
     if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
-        
+        resultsDisplay.innerHTML = 'GAME OVER BOZO'
+        clearInterval(invadersId)
     }
 
 }
