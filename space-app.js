@@ -1,4 +1,4 @@
-const grid = document.querySelector('.grid')
+const grid = document.querySelector('.space-grid')
 const resultsDisplay = document.querySelector('.results')
 let currentShooterIndex = 202
 let width = 15
@@ -13,7 +13,7 @@ for (let i = 0; i < 225; i++) {
     grid.appendChild(square)
 }
 
-const squares = Array.from(document.querySelectorAll('.grid div'))
+const squares = Array.from(document.querySelectorAll('.space-grid div'))
 
 const alienInvaders = [
     0,1,2,3,4,5,6,7,8,9,
