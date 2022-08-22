@@ -1,4 +1,4 @@
-const grid = document.querySelector('.space-grid')
+const spacegrid = document.querySelector('.space-grid')
 const resultsDisplay = document.querySelector('.results')
 let currentShooterIndex = 202
 let width = 15
@@ -10,7 +10,7 @@ let results = 0
 
 for (let i = 0; i < 225; i++) {
     const square = document.createElement('div')
-    grid.appendChild(square)
+    spacegrid.appendChild(square)
 }
 
 const squares = Array.from(document.querySelectorAll('.space-grid div'))
