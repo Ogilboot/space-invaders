@@ -1,10 +1,11 @@
 const grid = document.querySelector('.grid')
+const resultsDisplay = document.querySelector('.results')
 let currentShooterIndex = 202
 let width = 15
 let direction = 1
 let invadersId
 let goingRight = true
-const resultsDisplay = document.querySelector('.results')
+let aliensRemoved = []
 
 for (let i = 0; i < 225; i++) {
     const square = document.createElement('div')
@@ -22,7 +23,9 @@ const alienInvaders = [
 
 function draw() {
     for (let i = 0; i < alienInvaders.length; i++) {
-        squares[alienInvaders[i]].classList.add('invader')
+        if(!aliensRemoved.includes(i)) {
+          squares[alienInvaders[i]].classList.add('invader')
+        }
     }
 }
 
@@ -99,6 +102,19 @@ function shoot (e) {
         squares[currentLaserIndex].classList.remove('laser')
         currentLaserIndex -= width
         squares[currentLaserIndex].classList.add('laser')
+
+        if (squares[currentLaserIndex].classList.contains('invader')) {
+            squares[currentLaserIndex].classList.remove('laser')
+            squares[currentLaserIndex].classList.remove('invader')
+            squares[currentLaserIndex].classList.add('boom')
+
+            setTimeout(() => squares[currentLaserIndex].classList.remove('boom'), 300)
+            clearInterval(laserId)
+
+            const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+            aliensRemoved.push(alienRemoved)
+
+        }
     }
     switch(e.key) {
         case 'ArrowUp':
